@@ -129,6 +129,8 @@ You are **responsible** for scheduling time with your squad to seek approval for
 | dynamic img placements on flex-box |   7th    |
 | scale up to web size               |   8th    |
 
+![Time-Priority-Matrix](time-priorityMatrix.png)
+
 ## Timeframes
 
 Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
