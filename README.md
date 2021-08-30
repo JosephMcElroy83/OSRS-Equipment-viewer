@@ -74,8 +74,6 @@ https://xd.adobe.com/view/7c37346a-9513-4da9-9c52-3e834def3216-2964/
 
 ### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MPV and PostMVP. Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.
-
 #### MVP
 
 • Put images on correct spot using flex-box
@@ -133,10 +131,6 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle. You have limited time to code all phases of the game. Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
-
 | Component                  | Priority | Estimated Time | Time Invested | Actual Time |
 | -------------------------- | :------: | :------------: | :-----------: | :---------: |
 | HTML boilerplate           |    H     |      1hrs      |      hrs      |     hrs     |
@@ -153,8 +147,6 @@ Time frames are also key in the development cycle. You have limited time to code
 | Total                      |    H     |     30hrs      |      hrs      |     hrs     |
 
 ## Code Snippet
-
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
 
 ```
 function reverse(string) {
