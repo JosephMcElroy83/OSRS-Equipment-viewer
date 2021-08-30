@@ -118,7 +118,16 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix. Link this image in a similar manner to your wireframes
+| Component                          | Priority |
+| ---------------------------------- | :------: |
+| Boilerplate                        |   1st    |
+| Responsive layout                  |   2nd    |
+| Data pull for Selectors            |   3rd    |
+| create Selectors & logic           |   4th    |
+| search function                    |   5th    |
+| flex-box placements                |   6th    |
+| dynamic img placements on flex-box |   7th    |
+| scale up to web size               |   8th    |
 
 ## Timeframes
 
@@ -139,7 +148,7 @@ Time frames are also key in the development cycle. You have limited time to code
 | stat calc & placement      |    H     |      3hrs      |      hrs      |     hrs     |
 | create dynamic JS imgs     |    H     |      3hrs      |      hrs      |     hrs     |
 | scale up to web size       |    H     |      4hrs      |      hrs      |     hrs     |
-| Total                      |    H     |     30hrs      |     5hrs      |    5hrs     |
+| Total                      |    H     |     30hrs      |      hrs      |     hrs     |
 
 ## Code Snippet
 
