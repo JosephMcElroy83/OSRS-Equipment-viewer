@@ -1,19 +1,26 @@
-const equipmentVariables = [
+const attackVariables = [
     "attack_crush",
     "attack_magic",
     "attack_ranged",
     "attack_slash",
-    "attack_stab",
+    "attack_stab"
+]
+
+const defenceVariables = [
     "defence_crush",
     "defence_magic",
     "defence_ranged",
     "defence_slash",
-    "defence_stab",
+    "defence_stab"
+]
+
+const damageVariables = [
     "magic_damage",
     "melee_strength",
     "ranged_strength",
     "prayer"
 ]
+
 const equipmentSlots = [
   "head",
   "body",
@@ -66,9 +73,6 @@ async function fetchData() {
 }
 fetchData();
 
-function totalAttack(attackInput) {
-  let crush = res
-}
 
 // function filterEquip(input, search) {
 //   let filter = input.filter(item => {
