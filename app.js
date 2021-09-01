@@ -32,14 +32,26 @@ const equipmentSlots = [
   "shield",
   "cape",
   "neck",
-  "ammo",
   "ring",
-
+  "ammo"
 ]
 
 const imageBackground = document.body.querySelector('.equip-background-img');
 
 let globalData = [];
+let headArr = [];
+let bodyArr = [];
+let legsArr = [];
+let feetArr = [];
+let handsArr = [];
+let weaponArr = [];
+let twoHandArr = [];
+let shieldArr = [];
+let capeArr = [];
+let neckArr = [];
+let ringArr = [];
+let ammoArr = [];
+
 
 async function fetchData() {
   try {
@@ -52,17 +64,50 @@ async function fetchData() {
       equip = [...equip, ...res.data._items]
     }
     //console.log(equip[0]);
-    let filteredWeapons = equip.filter(item => {
-      if (item.equipment.slot == "weapon") {
-        return item
-      }
-    })
-    console.log(res)
-    console.log(equip)
     setTimeout(() => {
+      equip.forEach(item => {
+        if (item.equipment.slot == "head") {
+          headArr.push(item); 
+        }
+        if (item.equipment.slot == "body") {
+          bodyArr.push(item);
+        }
+        if (item.equipment.slot == "legs") {
+          legsArr.push(item);
+        }
+        if (item.equipment.slot == "feet") {
+          feetArr.push(item);
+        }
+        if (item.equipment.slot == "hands") {
+          handsArr.push(item);
+        }
+        if (item.equipment.slot == "weapon") {
+          weaponArr.push(item);
+        }
+        if (item.equipment.slot == "2h") {
+          twoHandArr.push(item);
+        }
+        if (item.equipment.slot == "shield") {
+          shieldArr.push(item);
+        }
+        if (item.equipment.slot == "cape") {
+          capeArr.push(item);
+        }
+        if (item.equipment.slot == "neck") {
+          neckArr.push(item);
+        }
+        if (item.equipment.slot == "ring") {
+          ringArr.push(item);
+        }
+        if (item.equipment.slot == "ammo") {
+          ammoArr.push(item);
+        }
+      })
+    
+    
       globalData.push(equip);
-      console.log(globalData)
-    }, 3000)
+      console.log(ammoArr);
+    }, 2000)
     // return filterEquip(equip, clickInput);
     
     //call function here to do something with data, passing in equip array
@@ -74,14 +119,28 @@ async function fetchData() {
 fetchData();
 
 
-// function filterEquip(input, search) {
-//   let filter = input.filter(item => {
-//     if (item.equipment.slot == search) {
-//       return item
-//     }
-//     return filter;
-//   })
-// }
+async function getIcons() {
+  try {
+    let res = await axios.get("https://boiling-mountain-84087.herokuapp.com/https://secure.runescape.com/m=itemdb_oldschool/1630405860279_obj_sprite.gif?id=4153");
+    let data = res.data
+    console.log(res)
+
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+getIcons();
+
+
+function filterEquip(input, search) {
+  input.filter(item => {
+    if (item == search) {
+      console.log(item);
+      return item
+    }
+  })
+}
 
 // async function fetchSpecific(category, slot, style, value) {
 //   try {
@@ -110,3 +169,7 @@ fetchData();
 
 
 //make a tags that link to id of container pertaining to the div that houses each section.
+
+//use data-type to find arr that you need to filter.
+//add eventlistener so when you click on, shows data type to tell you what array to filter through
+//in event handler filter by whatever input is.
