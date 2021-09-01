@@ -9,19 +9,83 @@ header {
   text-align: center;
   background-color: #cfba63;
   width: 100%;
-  height: 20vh;
+  height: 15%;
   min-height: 110px;
 }
 
 h1 {
   display: inline;
-  margin-top: 3vh;
-  padding-right: 10%;
+  margin-top: 10px;
+  font-size: 3em;
   color: black;
 }
 
 #main-body {
   background-color: #e2dbc8;
+}
+
+#equipment-container {
+  display: flex;
+  text-align: center;
+  justify-content: flex-center;
+  margin: 0;
+  padding: 0 0 0 3px;
+  width: 100%;
+  height: 60%;
+  background-color: brown;
+}
+
+.attack-stats,
+.defence-stats,
+.other-bonuses-stats,
+.set-unique-stats {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.attack-stats {
+  width: 12%;
+  background-color: burlywood;
+}
+
+.defence-stats {
+  width: 12%;
+  background-color: cadetblue;
+}
+
+.other-bonuses-stats {
+  width: 12%;
+  background-color: chocolate;
+}
+
+.set-unique-stats {
+  width: 12%;
+  background-color: darkgreen;
+}
+
+#equipment {
+  display: flex;
+  width: 30%;
+  height: 30%;
+  padding: 20px;
+  flex-flow: row wrap;
+  justify-content: center;
+  background-color: blue;
+}
+
+#stats-display {
+  display: flex;
+  width: 40%;
+  background-color: blueviolet;
+}
+
+.equip-background-img {
+  display: inline-flexbox;
+  width: 90px;
+  height: 90px;
+  align-content: center;
+  margin: 1px;
+  padding: 2px;
 }
 
 .btn {
