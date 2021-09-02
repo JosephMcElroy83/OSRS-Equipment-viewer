@@ -106,7 +106,7 @@ async function fetchData() {
     
     
       globalData.push(equip);
-      console.log(ammoArr);
+      console.log(headArr);
     }, 2000)
     // return filterEquip(equip, clickInput);
     
@@ -123,7 +123,7 @@ async function getIcons() {
   try {
     let res = await axios.get("https://boiling-mountain-84087.herokuapp.com/https://secure.runescape.com/m=itemdb_oldschool/1630405860279_obj_sprite.gif?id=4153");
     let data = res.data
-    console.log(res)
+    console.log(data)
 
 
   } catch (error) {
@@ -132,15 +132,17 @@ async function getIcons() {
 }
 getIcons();
 
+const headButton = document.querySelector('#head-img');
 
-function filterEquip(input, search) {
-  input.filter(item => {
-    if (item == search) {
-      console.log(item);
-      return item
-    }
-  })
-}
+headButton.addEventListener("click", () => {
+  if (headArr[0].name == "khazard helmet") {
+    console.log("This really worked")
+  } 
+
+
+  //console.log(headArr);
+})
+
 
 // async function fetchSpecific(category, slot, style, value) {
 //   try {

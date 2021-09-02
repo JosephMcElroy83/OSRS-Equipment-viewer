@@ -1,16 +1,19 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(222, 173, 110);
 }
 
 header {
   display: flex;
+  flex-direction: column;
   margin: 0;
   text-align: center;
-  background-color: #cfba63;
+  background-color: rgb(222, 173, 110);
   width: 100%;
   height: 15%;
   min-height: 110px;
+  border-bottom: 4px solid black;
 }
 
 h1 {
@@ -31,7 +34,8 @@ h1 {
   margin: 0;
   width: 100%;
   height: 60%;
-  background-color: brown;
+  background-color: burlywood;
+  border-bottom: 4px solid black;
 }
 
 .attack-stats,
@@ -43,33 +47,36 @@ h1 {
 }
 
 .attack-stats {
+  font-size: 1.2em;
   width: 12%;
   background-color: burlywood;
 }
 
 .defence-stats {
+  font-size: 1.2em;
   width: 12%;
-  background-color: cadetblue;
+  background-color: rgb(222, 173, 110);
 }
 
 .other-bonuses-stats {
+  font-size: 1.2em;
   width: 12%;
-  background-color: chocolate;
+  background-color: burlywood;
 }
 
 .set-unique-stats {
+  font-size: 1.2em;
   width: 12%;
-  background-color: darkgreen;
+  background-color: rgb(222, 173, 110);
 }
 
 #equipment {
   display: flex;
   width: 30%;
-  height: 30%;
   padding: 20px 0;
   flex-flow: row wrap;
   justify-content: center;
-  background-color: blue;
+  background-color: rgb(222, 173, 110);
 }
 
 #stats-display {
@@ -89,7 +96,7 @@ h1 {
 
 .btn {
   align-self: center;
-  width: 75px;
+  font-size: 1em;
   height: 50px;
   margin-bottom: 10px;
   font-weight: bold;
@@ -102,7 +109,33 @@ h1 {
 }
 
 footer {
-  background-color: darkgreen;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(222, 173, 110);
+}
+
+.git-images {
+  width: auto;
+}
+
+#git-info-footer {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  text-align: center;
+  font-size: 1.7rem;
+  text-decoration: underline;
+}
+
+#main-git-repo {
+  height: auto;
+  width: 100px;
+}
+
+#ge-api-repo {
+  height: auto;
+  width: 100px;
+  border-radius: 40%;
 }
 
 @media screen and (max-width: 700px) {
@@ -113,5 +146,6 @@ footer {
   .stats,
   #equipment {
     width: 100%;
+    padding-bottom: 10px;
   }
 }
