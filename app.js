@@ -51,6 +51,7 @@ let capeArr = [];
 let neckArr = [];
 let ringArr = [];
 let ammoArr = [];
+let allitemsArr = [];
 
 
 async function fetchData() {
@@ -118,30 +119,80 @@ async function fetchData() {
 }
 fetchData();
 
+const weaponsPlaceholder = document.getElementById('equipment');
+const headButton = document.querySelector('#head-img');
+const headItemDiv = document.querySelector('#head-item');
 
-async function getIcons() {
+async function getIcons(id, div) {
   try {
-    let res = await axios.get("https://boiling-mountain-84087.herokuapp.com/https://secure.runescape.com/m=itemdb_oldschool/1630405860279_obj_sprite.gif?id=4153");
-    let data = res.data
-    console.log(data)
-
+    let res = await axios.get(`https://boiling-mountain-84087.herokuapp.com/http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=${id}`);
+    let getIcon = res.data.item.icon
+    console.log(getIcon)
+    let img = new Image();
+    img.src = getIcon;
+    img.classList.add('icon');
+    div.append(img);
 
   } catch (error) {
     console.log(error)
   }
 }
-getIcons();
+//getIcons(4151);
 
-const headButton = document.querySelector('#head-img');
+
+let searchInput = document.querySelector('#item-search');
+let searchList = document.querySelector('#item-list')
 
 headButton.addEventListener("click", () => {
-  if (headArr[0].name == "khazard helmet") {
-    console.log("This really worked")
-  } 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = headArr.filter(item => { //chagne headARr
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = headArr; //change headArr
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, headItemDiv) //headItemDiv needs change
+      })
+      searchList.append(itemName);
+    })
+  })
+  //selector comes up
+  //return of select 
+  // let item = headArr[2].id
+  // getIcons(item, headItemDiv)
+  
+  console.log()
+})
 
 
   //console.log(headArr);
-})
+
+
+//modify html, background imgs not divs, double check css styling, copy paste down.
+
+
+
+
+
+
+
+
 
 
 // async function fetchSpecific(category, slot, style, value) {
@@ -163,14 +214,6 @@ headButton.addEventListener("click", () => {
 // fetchSpecific('weapons', '2h', 'ranged_strength', '20');
 
 //----------NOTES----------
-//.filter 
-// if category slot = weapon, armor, etc.
-
-
-
-
-
-//make a tags that link to id of container pertaining to the div that houses each section.
 
 //use data-type to find arr that you need to filter.
 //add eventlistener so when you click on, shows data type to tell you what array to filter through

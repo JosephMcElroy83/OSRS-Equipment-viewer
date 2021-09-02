@@ -72,6 +72,7 @@ h1 {
 
 #equipment {
   display: flex;
+  position: relative;
   width: 30%;
   padding: 20px 0;
   flex-flow: row wrap;
@@ -82,7 +83,6 @@ h1 {
 #stats-display {
   display: flex;
   width: 40%;
-  background-color: blueviolet;
 }
 
 .equip-background-img {
@@ -108,9 +108,32 @@ h1 {
   background-color: rgb(131, 131, 131);
 }
 
+#item-search {
+  display: none;
+  background-color: whitesmoke;
+}
+
+#area-under-search {
+  background-color: rgb(222, 173, 110);
+}
+
+#item-list {
+  display: none;
+  overflow-y: scroll;
+  max-height: 300px;
+}
+
+#head-img {
+  background-image: url("./images/head.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
 footer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: rgb(222, 173, 110);
 }
 
@@ -129,13 +152,22 @@ footer {
 
 #main-git-repo {
   height: auto;
-  width: 100px;
+  width: 80px;
+  padding: 0 5px;
+  align-self: center;
 }
 
 #ge-api-repo {
   height: auto;
-  width: 100px;
+  width: 80px;
   border-radius: 40%;
+  padding: 0 5px;
+  align-self: center;
+}
+
+.icon {
+  z-index: 1;
+  position: relative;
 }
 
 @media screen and (max-width: 700px) {
