@@ -1,5 +1,9 @@
 # Project Overview
 
+## Live link
+
+https://josephmcelroy83.github.io/OSRS-Equipment-viewer/
+
 ## Project Name
 
 OSRS-Equipment-viewer
