@@ -257,7 +257,6 @@ let searchInput = document.querySelector('#item-search');
 let searchList = document.querySelector('#item-list')
 
 headButton.addEventListener("click", () => {
-  console.log(searchInput)
   let filteredItems = headArr
   searchInput.style.display = "block";
   searchList.style.display = "block";
@@ -288,7 +287,6 @@ headButton.addEventListener("click", () => {
     })
   })
   
-  console.log(allitemsArr)
 })
 //BODY
 bodyButton.addEventListener("click", () => { 

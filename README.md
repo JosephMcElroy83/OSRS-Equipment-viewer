@@ -133,25 +133,54 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 | Component                  | Priority | Estimated Time | Time Invested | Actual Time |
 | -------------------------- | :------: | :------------: | :-----------: | :---------: |
-| HTML boilerplate           |    H     |      1hrs      |      hrs      |     hrs     |
-| make basic css layout      |    H     |      2hrs      |      hrs      |     hrs     |
-| pseudo code logic JS       |    H     |      2hrs      |      hrs      |     hrs     |
-| fetch data                 |    H     |      1hrs      |      hrs      |     hrs     |
-| create selectors for items |    H     |      3hrs      |      hrs      |     hrs     |
-| attach logic to buttons    |    H     |      3hrs      |      hrs      |     hrs     |
-| creating dynamic search    |    H     |      4hrs      |      hrs      |     hrs     |
-| flex-box icon placements   |    H     |      4hrs      |      hrs      |     hrs     |
-| stat calc & placement      |    H     |      3hrs      |      hrs      |     hrs     |
-| create dynamic JS imgs     |    H     |      3hrs      |      hrs      |     hrs     |
-| scale up to web size       |    H     |      4hrs      |      hrs      |     hrs     |
-| Total                      |    H     |     30hrs      |      hrs      |     hrs     |
+| HTML boilerplate           |    H     |     1 hrs      |    0.5 hrs    |   0.5 hrs   |
+| make basic css layout      |    H     |     2 hrs      |     2 hrs     |   2.5 hrs   |
+| pseudo code logic JS       |    H     |     2 hrs      |     2 hrs     |   4.5 hrs   |
+| fetch data                 |    H     |     1 hrs      |    0.5 hrs    |    5 hrs    |
+| create selectors for items |    H     |     3 hrs      |     6 hrs     |   11 hrs    |
+| attach logic to buttons    |    H     |     3 hrs      |     3 hrs     |   14 hrs    |
+| creating dynamic search    |    H     |     4 hrs      |     8 hrs     |   22 hrs    |
+| flex-box icon placements   |    H     |     4 hrs      |     5 hrs     |   27 hrs    |
+| stat calc & placement      |    H     |     3 hrs      |     2 hrs     |   29 hrs    |
+| create dynamic JS imgs     |    H     |     3 hrs      |     2 hrs     |   31 hrs    |
+| scale up to web size       |    H     |     4 hrs      |     2 hrs     |   33 hrs    |
+| Total                      |    H     |     30 hrs     |    33 hrs     |   33 hrs    |
 
 ## Code Snippet
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+headButton.addEventListener("click", () => {
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = headArr.filter(item => {
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = headArr;
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, headItemDiv)
+      })
+      searchList.append(itemName);
+    })
+  })
+
+})
 ```
 
 ## Change Log
