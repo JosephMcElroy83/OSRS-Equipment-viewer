@@ -104,15 +104,15 @@ This schedule will be used to keep track of your progress throughout the week an
 
 You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
-| Day        | Deliverable                                        | Status     |
-| ---------- | -------------------------------------------------- | ---------- |
-| July 10-12 | Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete |
-| July 13    | Project Approval                                   | Incomplete |
-| July 13    | Core Application Structure (HTML, CSS, etc.)       | Incomplete |
-| July 14    | Pseudocode / actual code                           | Incomplete |
-| July 15    | Initial Clickable Model                            | Incomplete |
-| July 16    | MVP                                                | Incomplete |
-| July 17    | Presentations                                      | Incomplete |
+| Day         | Deliverable                                        | Status   |
+| ----------- | -------------------------------------------------- | -------- |
+| August 29   | Prompt / Wireframes / Priority Matrix / Timeframes | complete |
+| August 30   | Project Approval                                   | complete |
+| August 31   | Core Application Structure (HTML & CSS)            | complete |
+| September 1 | Pseudocoded, JS basic logic                        | complete |
+| September 2 | JS buttons, search filter, dynamic inputs          | complete |
+| September 3 | MVP                                                | complete |
+| September 3 | Presentations                                      | complete |
 
 ## Priority Matrix
 
@@ -185,4 +185,4 @@ headButton.addEventListener("click", () => {
 
 ## Change Log
 
-Use this section to document what changes were made and the reasoning behind those changes.
+Made a hidden search connected to each icon button for lists of items so it kept the screen cleaner than having a cluster of searchable items being inline and distorting the sizes of the containers.
