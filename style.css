@@ -130,6 +130,76 @@ h1 {
   background-size: contain;
 }
 
+#body-img {
+  background-image: url("./images/body.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#legs-img {
+  background-image: url("./images/legs.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#feet-img {
+  background-image: url("./images/feet.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#weapons-img {
+  background-image: url("./images/weapons.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#shields-img {
+  background-image: url("./images/shields.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#hands-img {
+  background-image: url("./images/hands.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#cape-img {
+  background-image: url("./images/cape.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#neck-img {
+  background-image: url("./images/neck.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#ring-img {
+  background-image: url("./images/ring.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#ammo-img {
+  background-image: url("./images/ammo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
 footer {
   display: flex;
   flex-direction: column;
@@ -166,6 +236,8 @@ footer {
 }
 
 .icon {
+  width: 85px;
+  height: 85px;
   z-index: 1;
   position: relative;
 }

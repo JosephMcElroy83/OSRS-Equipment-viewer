@@ -16,51 +16,70 @@
   </header>
   <main id="main-body">
     <div id="equipment-container">
-        <div><input type="text" id="item-search"></div>
+        <div id="area-under-search"><input type="text" id="item-search"></div>
       <div id="item-list"></div>
       <div id="equipment" class="stats">
         <div id="head-img" class="equip-background-img" data-type="headArr">
         <div id="head-item"></div>
       </div>
-        <img id="body-img" class="equip-background-img" data-type="bodyArr" src="./images/body.png" alt="" srcset="">
-        <img id="legs-img" class="equip-background-img" data-type="legsArr" src="./images/legs.png" alt="" srcset="">
-        <img id="feet-img" class="equip-background-img" data-type="feetArr" src="./images/feet.png" alt="" srcset="">
-        <img id="weapons-img" class="equip-background-img" data-type="weaponArr" src="./images/weapons.png" alt="" srcset="">
-        <img id="shields-img" class="equip-background-img" data-type="shieldsArr" src="./images/shields.png" alt="" srcset="">
-        <img id="cape-img" class="equip-background-img" data-type="capeArr" src="./images/cape.png" alt="" srcset="">
-        <img id="hands-img" class="equip-background-img" data-type="handsArr" src="./images/hands.png" alt="" srcset="">
-        <img id="neck-img" class="equip-background-img" data-type="neckArr" src="./images/neck.png" alt="" srcset="">
-        <img id="ring-img" class="equip-background-img" data-type="ringArr" src="./images/ring.png" alt="" srcset="">
-        <img id="ammo-img" class="equip-background-img" data-type="ammoArr" src="./images/ammo.png" alt="" srcset="">
+        <div id="body-img" class="equip-background-img" data-type="bodyArr">
+        <div id="body-item"></div>
+      </div>
+        <div id="legs-img" class="equip-background-img" data-type="legsArr">
+        <div id="legs-item"></div>
+      </div>
+        <div id="feet-img" class="equip-background-img" data-type="feetArr">
+        <div id="feet-item"></div>
+      </div>
+        <div id="weapons-img" class="equip-background-img" data-type="weaponArr">
+        <div id="weapons-item"></div>
+      </div>
+        <div id="shields-img" class="equip-background-img" data-type="shieldsArr">
+        <div id="shields-item"></div>
+      </div>
+        <div id="cape-img" class="equip-background-img" data-type="capeArr">
+        <div id="cape-item"></div>
+      </div>
+        <div id="hands-img" class="equip-background-img" data-type="handsArr">
+        <div id="hands-item"></div>
+      </div>
+        <div id="neck-img" class="equip-background-img" data-type="neckArr">
+        <div id="neck-item"></div>
+      </div>
+        <div id="ring-img" class="equip-background-img" data-type="ringArr">
+        <div id="ring-item"></div>  
+      </div>      
+        <div id="ammo-img" class="equip-background-img" data-type="ammoArr">
+        <div id="ammo-item"></div>
+      </div>
       </div>
       <div class="attack-stats stats">
         <h3>Attack Bonus</h3> <br>
-        crush: <span class="attack-span">0</span><br>
-        magic: <span class="attack-span">0</span><br>
-        ranged: <span class="attack-span">0</span><br>
-        slash: <span class="attack-span">0</span><br>
-        stab: <span class="attack-span">0</span><br>
+        stab: <span id="attackstab" class="attack-span">0</span><br>
+        slash: <span id="attackslash" class="attack-span">0</span><br>
+        crush: <span id="attackcrush" class="attack-span">0</span><br>
+        ranged: <span id="attackranged" class="attack-span">0</span><br>
+        magic: <span id="attackmagic" class="attack-span">0</span><br>
       </div>
       <div class="defence-stats stats">
         <h3>Defence Bonus</h3> <br>
-        crush: <span class="defence-span">0</span><br>
-        magic: <span class="defence-span">0</span><br>
-        ranged: <span class="defence-span">0</span><br>
-        slash: <span class="defence-span">0</span><br>
-        stab: <span class="defence-span">0</span><br>
+        stab: <span id="defencestab" class="defence-span">0</span><br>
+        slash: <span id="defenceslash" class="defence-span">0</span><br>
+        crush: <span id="defencecrush" class="defence-span">0</span><br>
+        ranged: <span id="defenceranged" class="defence-span">0</span><br>
+        magic: <span id="defencemagic" class="defence-span">0</span><br>
       </div>
       <div class="other-bonuses-stats stats">
         <h3>Other Bonuses</h3> <br>
-        magic damage: <span class="other-bonuses-span">0</span><br>
-        melee strength: <span class="other-bonuses-span">0</span><br>
-        ranged strength: <span class="other-bonuses-span">0</span><br>
-        prayer: <span class="other-bonuses-span">0</span>
+        melee strength: <span id="damagemelee" class="other-bonuses-span">0</span><br>
+        ranged strength: <span id="damageranged" class="other-bonuses-span">0</span><br>
+        magic damage: <span id="damagemagic" class="other-bonuses-span">0</span><br>
+        prayer: <span id="prayerbonus" class="other-bonuses-span">0</span>
       </div>
       <div class="set-unique-stats stats">
         <h3>Set & Unique Item Bonuses</h3> <br>
-        Undead:<span class="set-unique-span">0%</span> <br>
-        Slayer:<span class="set-unique-span">0%</span> <br>
-      
+        Undead:<span id="undeadbonus" class="set-unique-span">0%</span> <br>
+        Slayer:<span id="slayerbonus" class="set-unique-span">0%</span> <br>
       </div>
     </div>
     <div id="selector-container">
@@ -71,6 +90,7 @@
     </div>
   </main>
   <footer>
+    NOTE: please wait a second after each click to ensure loading times from API, please and thank you!
     <ul id="git-info-footer">
       <a href="https://github.com/osrsbox/osrsbox-api/">Database API</a>
       <a href="https://www.reddit.com/r/2007scape/comments/3g06rq/guide_using_the_old_school_ge_page_api/">Icon API</a>

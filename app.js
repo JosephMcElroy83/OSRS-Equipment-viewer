@@ -52,6 +52,93 @@ let neckArr = [];
 let ringArr = [];
 let ammoArr = [];
 let allitemsArr = [];
+//use reduce
+
+const attackCrush = document.querySelector('#attackcrush')
+const attackMagic = document.querySelector('#attackmagic')
+const attackRanged = document.querySelector('#attackranged')
+const attackSlash = document.querySelector('#attackslash')
+const attackStab = document.querySelector('#attackstab')
+const defenceCrush = document.querySelector('#defencecrush')
+const defenceMagic = document.querySelector('#defencemagic')
+const defenceRanged = document.querySelector('#defenceranged')
+const defenceSlash = document.querySelector('#defenceslash')
+const defenceStab = document.querySelector('#defencestab')
+const damageMelee = document.querySelector('#damagemelee')
+const damageRanged = document.querySelector('#damageranged')
+const damageMagic = document.querySelector('#damagemagic')
+const prayerBonus = document.querySelector('#prayerbonus')
+
+
+function getStats() {
+  //update html with new var
+  let attack_stab = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.attack_stab
+      ), 0)
+      attackStab.innerText = attack_stab
+  
+  let attack_slash = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.attack_slash
+      ), 0)
+      attackSlash.innerText = attack_slash
+  
+  let attack_crush = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.attack_crush
+      ), 0)
+      attackCrush.innerText = attack_crush
+  
+  let attack_magic = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.attack_magic
+      ), 0)
+      attackMagic.innerText = attack_magic
+    
+  let attack_ranged = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.attack_ranged
+      ), 0)
+      attackRanged.innerText = attack_ranged
+  
+  let defence_stab = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.defence_stab
+      ), 0)
+      defenceStab.innerText = defence_stab
+  
+  let defence_slash = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.defence_slash
+      ), 0)
+      defenceSlash.innerText = defence_slash
+  
+  let defence_crush = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.defence_crush
+      ), 0)
+      defenceCrush.innerText = defence_crush
+  
+  let defence_ranged = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.defence_ranged
+      ), 0)
+      defenceRanged.innerText = defence_ranged
+  
+  let defence_magic = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.defence_magic
+      ), 0)
+      defenceMagic.innerText = defence_magic
+  
+  let damage_melee = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.melee_strength
+      ), 0)
+      damageMelee.innerText = damage_melee
+  
+  let damage_ranged = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.ranged_strength
+      ), 0)
+      damageRanged.innerText = damage_ranged
+  
+  let damage_magic = allitemsArr.reduce((acc, item) => (
+      acc += item.equipment.magic_damage
+      ), 0)
+      damageMagic.innerText = damage_magic
+        
+
+}
 
 
 async function fetchData() {
@@ -122,8 +209,30 @@ fetchData();
 const weaponsPlaceholder = document.getElementById('equipment');
 const headButton = document.querySelector('#head-img');
 const headItemDiv = document.querySelector('#head-item');
+const bodyButton = document.querySelector('#body-img');
+const bodyItemDiv = document.querySelector('#body-item');
+const legsButton = document.querySelector('#legs-img');
+const legsItemDiv = document.querySelector('#legs-item');
+const feetButton = document.querySelector('#feet-img');
+const feetItemDiv = document.querySelector('#feet-item');
+const weaponsButton = document.querySelector('#weapons-img');
+const weaponsItemDiv = document.querySelector('#weapons-item');
+const shieldsButton = document.querySelector('#shields-img');
+const shieldsItemDiv = document.querySelector('#shields-item');
+const capeButton = document.querySelector('#cape-img');
+const capeItemDiv = document.querySelector('#cape-item');
+const handsButton = document.querySelector('#hands-img');
+const handsItemDiv = document.querySelector('#hands-item');
+const neckButton = document.querySelector('#neck-img');
+const neckItemDiv = document.querySelector('#neck-item');
+const ringButton = document.querySelector('#ring-img');
+const ringItemDiv = document.querySelector('#ring-item');
+const ammoButton = document.querySelector('#ammo-img');
+const ammoItemDiv = document.querySelector('#ammo-item');
+
 
 async function getIcons(id, div) {
+  getStats();
   try {
     let res = await axios.get(`https://boiling-mountain-84087.herokuapp.com/http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=${id}`);
     let getIcon = res.data.item.icon
@@ -134,6 +243,10 @@ async function getIcons(id, div) {
     div.append(img);
 
   } catch (error) {
+    let img = new Image();
+    img.src = "images/error404.png";
+    img.classList.add('icon');
+    div.append(img);
     console.log(error)
   }
 }
@@ -151,7 +264,7 @@ headButton.addEventListener("click", () => {
   searchInput.addEventListener("keyup", (e) => {
     console.log(e.target.value)
     searchList.innerHTML = "";
-    filteredItems = headArr.filter(item => { //chagne headARr
+    filteredItems = headArr.filter(item => { 
       let splitItem = item.name.split(" ")
       if (splitItem.includes(e.target.value)) {
         return item
@@ -164,35 +277,374 @@ headButton.addEventListener("click", () => {
       itemName.innerText = item.name;
       itemName.addEventListener("click", () => {
         allitemsArr.push(item)
-        filteredItems = headArr; //change headArr
+        filteredItems = headArr;
+        searchInput.value = "";
+        searchList.innerHTML = "";
         searchInput.style.display = "none";
         searchList.style.display = "none";
-        getIcons(item.id, headItemDiv) //headItemDiv needs change
+        getIcons(item.id, headItemDiv) 
       })
       searchList.append(itemName);
     })
   })
-  //selector comes up
-  //return of select 
-  // let item = headArr[2].id
-  // getIcons(item, headItemDiv)
+  
+  console.log(allitemsArr)
+})
+//BODY
+bodyButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = bodyArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = bodyArr;
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, bodyItemDiv)
+      })
+      searchList.append(itemName);
+    })
+  })
+  
+  console.log()
+})
+//LEGS
+legsButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = legsArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = legsArr;
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, legsItemDiv) 
+      })
+      searchList.append(itemName);
+    })
+  })
+  
+  console.log()
+})
+//FEET
+feetButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = feetArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = feetArr;
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, feetItemDiv) 
+      })
+      searchList.append(itemName);
+    })
+  })
+  
+  console.log()
+})
+//WEAPONS
+weaponsButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = weaponArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = weaponArr; 
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, weaponsItemDiv) 
+      })
+      searchList.append(itemName);
+    })
+  })
+  
+  console.log()
+})
+//SHIELDS
+shieldsButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = shieldsArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = shieldsArr; 
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, shieldsItemDiv) 
+      })
+      searchList.append(itemName);
+    })
+  })
   
   console.log()
 })
 
+//CAPE
+capeButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = capeArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = capeArr; 
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, capeItemDiv) 
+      })
+      searchList.append(itemName);
+    })
+  })
+  
+  console.log()
+})
 
-  //console.log(headArr);
+//HANDS
+handsButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = handsArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = handsArr; 
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, handsItemDiv) 
+      })
+      searchList.append(itemName);
+    })
+  })
+  
+  console.log()
+})
 
+//NECK
+neckButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = neckArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = neckArr; 
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, neckItemDiv)
+      })
+      searchList.append(itemName);
+    })
+  })
+  
+  console.log()
+})
 
-//modify html, background imgs not divs, double check css styling, copy paste down.
+//RING
+ringButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = ringArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = ringArr; 
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, ringItemDiv) 
+      })
+      searchList.append(itemName);
+    })
+  })
+  
+  console.log()
+})
 
-
-
-
-
-
-
-
+//AMMO
+ammoButton.addEventListener("click", () => { 
+  console.log(searchInput)
+  let filteredItems = headArr
+  searchInput.style.display = "block";
+  searchList.style.display = "block";
+  searchInput.addEventListener("keyup", (e) => {
+    console.log(e.target.value)
+    searchList.innerHTML = "";
+    filteredItems = ammoArr.filter(item => { 
+      let splitItem = item.name.split(" ")
+      if (splitItem.includes(e.target.value)) {
+        return item
+      }
+    })
+    console.log(filteredItems)
+    filteredItems.forEach(item => {
+      let itemName = document.createElement('h5');
+      console.log(itemName)
+      itemName.innerText = item.name;
+      itemName.addEventListener("click", () => {
+        allitemsArr.push(item)
+        filteredItems = ammoArr; 
+        searchInput.value = "";
+        searchList.innerHTML = "";
+        searchInput.style.display = "none";
+        searchList.style.display = "none";
+        getIcons(item.id, ammoItemDiv) 
+      })
+      searchList.append(itemName);
+    })
+  })
+  
+  console.log()
+})
 
 
 // async function fetchSpecific(category, slot, style, value) {
@@ -212,9 +664,3 @@ headButton.addEventListener("click", () => {
 //   }
 // }
 // fetchSpecific('weapons', '2h', 'ranged_strength', '20');
-
-//----------NOTES----------
-
-//use data-type to find arr that you need to filter.
-//add eventlistener so when you click on, shows data type to tell you what array to filter through
-//in event handler filter by whatever input is.
